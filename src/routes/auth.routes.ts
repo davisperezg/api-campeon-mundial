@@ -2,7 +2,6 @@ import { Router } from "express";
 const router = Router();
 import passport from "passport";
 import {
-  MyAccessURL,
   ForbiddenStudent,
   ForbiddenAdmin,
   ForbiddenSA2,
@@ -22,7 +21,6 @@ router.get(
 router.post(
   "/v1/auth/signUp",
   [
-    MyAccessURL,
     passport.authenticate("jwt", { session: false }),
     ForbiddenAdmin,
     ForbiddenStudent,
@@ -34,7 +32,6 @@ router.post(
 router.put(
   "/v1/user/:id",
   [
-    MyAccessURL,
     passport.authenticate("jwt", { session: false }),
     ForbiddenAdmin,
     ForbiddenStudent,
@@ -45,7 +42,6 @@ router.put(
 router.get(
   "/v1/user",
   [
-    MyAccessURL,
     passport.authenticate("jwt", { session: false }),
     ForbiddenAdmin,
     ForbiddenStudent,
@@ -56,7 +52,6 @@ router.get(
 router.get(
   "/v1/user/:id",
   [
-    MyAccessURL,
     passport.authenticate("jwt", { session: false }),
     ForbiddenAdmin,
     ForbiddenStudent,
@@ -67,7 +62,6 @@ router.get(
 router.delete(
   "/v1/user/:id",
   [
-    MyAccessURL,
     passport.authenticate("jwt", { session: false }),
     //ForbiddenSA2,
     ForbiddenAdmin,
@@ -79,7 +73,6 @@ router.delete(
 router.put(
   "/v1/activate/user/:id",
   [
-    MyAccessURL,
     passport.authenticate("jwt", { session: false }),
     //ForbiddenSA2,
     ForbiddenAdmin,
